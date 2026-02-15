@@ -3,6 +3,8 @@
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.feature_extraction.text import HashingVectorizer
 import numpy as np
+import re
+import string
 
 class FeatureExtractor:
     
@@ -10,10 +12,38 @@ class FeatureExtractor:
         # can use bow, tfidf, bigram, trigram
         self.method = method
         self.vectorizer = None
+    
+    def preprocess_text(self, text):
+        """
+        Basic text preprocessing:
+        - Convert to lowercase
+        - Remove punctuation
+        - Remove extra whitespace
+        """
+        # convert to lowercase
+        text = text.lower()
+        
+        # remove punctuation
+        text = text.translate(str.maketrans('', '', string.punctuation))
+        
+        # remove extra whitespace
+        text = re.sub(r'\s+', ' ', text).strip()
+        
+        return text
+    
+    def preprocess_documents(self, texts):
+        """
+        Apply preprocessing to all documents
+        """
+        return [self.preprocess_text(doc) for doc in texts]
         
     def fit_transform(self, texts):
         # convert text documents into feature vectors
         # this is where we turn words into numbers
+        
+        # preprocess all texts first
+        print("Preprocessing texts (removing punctuation, converting to lowercase)...")
+        texts = self.preprocess_documents(texts)
         
         method_type = self.method
         
@@ -63,6 +93,8 @@ class FeatureExtractor:
             print("Error: Need to fit vectorizer first!")
             return None
         
+        # preprocess texts before transforming
+        texts = self.preprocess_documents(texts)
         X = self.vectorizer.transform(texts)
         return X
     

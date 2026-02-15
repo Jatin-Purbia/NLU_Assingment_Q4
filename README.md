@@ -1,6 +1,6 @@
 # Sport vs Politics Text Classification
 
-Binary text classifier using machine learning to distinguish between sports and politics documents.
+Binary text classifier using machine learning to distinguish between sports and politics Documents.
 
 ## Features
 
@@ -10,9 +10,9 @@ Binary text classifier using machine learning to distinguish between sports and 
 
 ## Dataset
 
-- **Total:** 139 documents (111 train, 28 test)
-- **Sport:** 69 documents (55 train, 14 test)
-- **Politics:** 70 documents (56 train, 14 test)
+- **Total:** 139 lines (111 train, 28 test)
+- **Sport:** 69 lines (55 train, 14 test)
+- **Politics:** 70 lines (56 train, 14 test)
 - **Split:** 80/20 random split
 
 ```
@@ -85,7 +85,7 @@ python detailed_analysis.py
 
 ## Limitations
 
-- Small dataset (139 documents)
+- Small dataset (139 lines)
 - Binary classification only
 - Fixed vocabulary (no handling of unknown words)
 - Bag-of-words approach (loses context)

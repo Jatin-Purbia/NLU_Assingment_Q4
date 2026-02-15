@@ -10,7 +10,7 @@ def load_training_data():
     docs = []
     labels = []
     
-    # load sport documents
+    # load sport lines
     sport_path = 'data/sport/sport_train.txt'
     with open(sport_path, 'r', encoding='utf-8') as file:
         lines = file.readlines()
@@ -20,7 +20,7 @@ def load_training_data():
                 docs.append(text)
                 labels.append(0)
     
-    # load politics documents
+    # load politics lines
     politics_path = 'data/politics/politics_train.txt'
     with open(politics_path, 'r', encoding='utf-8') as file:
         lines = file.readlines()
@@ -50,7 +50,7 @@ def analyze_vocabulary():
     # get feature names (words)
     words = extractor.get_feature_names()
     
-    # separate sport and politics documents
+    # separate sport and politics lines
     labels_arr = np.array(labels)
     sport_idx = labels_arr == 0
     politics_idx = labels_arr == 1
@@ -155,7 +155,7 @@ def dataset_statistics():
     print("DATASET STATISTICS")
     print("="*60)
     
-    # load documents
+    # load lines
     docs, labels = load_training_data()
     
     # count words in each document
@@ -166,9 +166,9 @@ def dataset_statistics():
     
     lengths_array = np.array(lengths)
     
-    print(f"\nTotal training documents: {len(docs)}")
-    print(f"Sport documents: {labels.count(0)}")
-    print(f"Politics documents: {labels.count(1)}")
+    print(f"\nTotal training lines: {len(docs)}")
+    print(f"Sport lines: {labels.count(0)}")
+    print(f"Politics lines: {labels.count(1)}")
     
     print(f"\nDocument length statistics:")
     print(f"  Average words per document: {lengths_array.mean():.2f}")
@@ -197,8 +197,8 @@ def dataset_statistics():
         else:
             politics_lens.append(lengths[i])
     
-    print(f"\nAverage words in Sport documents: {np.mean(sport_lens):.2f}")
-    print(f"Average words in Politics documents: {np.mean(politics_lens):.2f}")
+    print(f"\nAverage words in Sport lines: {np.mean(sport_lens):.2f}")
+    print(f"Average words in Politics lines: {np.mean(politics_lens):.2f}")
 
 def main():
     # run all analyses
