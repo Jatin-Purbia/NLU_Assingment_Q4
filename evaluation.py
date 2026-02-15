@@ -205,7 +205,22 @@ def compare_classifiers():
     print("="*50)
     print("="*50)
     
-    return results
+    return all_results
+
+def get_performance_level(accuracy):
+    """
+    Classify performance based on accuracy percentage
+    """
+    if accuracy >= 95:
+        return 'Excellent'
+    elif accuracy >= 90:
+        return 'Very Good'
+    elif accuracy >= 85:
+        return 'Good'
+    elif accuracy >= 80:
+        return 'Fair'
+    else:
+        return 'Needs Improvement'
 
 def create_comparison_plots(results):
     """
@@ -220,21 +235,25 @@ def create_comparison_plots(results):
         accuracies.append(value['accuracy'])
     
     # create bar plot
-    plt.figure(figsize=(14, 6))
+    plt.figure(figsize=(15, 7))
     bars = plt.bar(range(len(names)), accuracies, color='skyblue', edgecolor='navy')
     plt.xlabel('Classifier Configuration', fontsize=12)
     plt.ylabel('Accuracy (%)', fontsize=12)
     plt.title('Comparison of Different Classifiers', fontsize=14, fontweight='bold')
-    plt.xticks(range(len(names)), names, rotation=45, ha='right')
-    plt.ylim(0, 100)
+    plt.xticks(range(len(names)), names, rotation=45, ha='right', fontsize=9)
+    plt.ylim(0, 110)
     plt.grid(axis='y', alpha=0.3)
     
     # add value labels on bars
     for i, bar in enumerate(bars):
         height = bar.get_height()
-        plt.text(bar.get_x() + bar.get_width()/2., height,
+        level = get_performance_level(height)
+        plt.text(bar.get_x() + bar.get_width()/2., height + 2,
                 f'{height:.1f}%',
-                ha='center', va='bottom', fontsize=9)
+                ha='center', va='bottom', fontsize=8, fontweight='bold')
+        plt.text(bar.get_x() + bar.get_width()/2., height + 5,
+                f'{level}',
+                ha='center', va='bottom', fontsize=7, style='italic')
     
     plt.tight_layout()
     
@@ -268,8 +287,9 @@ def save_results_to_file(results):
         f.write("="*60 + "\n\n")
         
         for config, metrics in results.items():
+            level = get_performance_level(metrics['accuracy'])
             f.write(f"Configuration: {config}\n")
-            f.write(f"  Accuracy: {metrics['accuracy']:.2f}%\n")
+            f.write(f"  Accuracy: {metrics['accuracy']:.2f}% ({level})\n")
             f.write(f"  Training Time: {metrics['training_time']:.4f} seconds\n")
             f.write(f"  Prediction Time: {metrics['prediction_time']:.4f} seconds\n")
             f.write(f"  Confusion Matrix:\n")

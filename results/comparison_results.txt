@@ -10,97 +10,97 @@ DETAILED RESULTS
 ============================================================
 
 Configuration: tfidf_naive_bayes
-  Accuracy: 100.00%
-  Training Time: 0.0010 seconds
+  Accuracy: 100.00% (Excellent)
+  Training Time: 0.0025 seconds
   Prediction Time: 0.0000 seconds
   Confusion Matrix:
     [14  0]
     [ 0 14]
 
 Configuration: tfidf_logistic
-  Accuracy: 100.00%
-  Training Time: 0.0030 seconds
+  Accuracy: 100.00% (Excellent)
+  Training Time: 0.0021 seconds
   Prediction Time: 0.0000 seconds
   Confusion Matrix:
     [14  0]
     [ 0 14]
 
 Configuration: tfidf_svm
-  Accuracy: 100.00%
+  Accuracy: 100.00% (Excellent)
+  Training Time: 0.0028 seconds
+  Prediction Time: 0.0009 seconds
+  Confusion Matrix:
+    [14  0]
+    [ 0 14]
+
+Configuration: tfidf_random_forest
+  Accuracy: 96.43% (Excellent)
+  Training Time: 0.0953 seconds
+  Prediction Time: 0.0021 seconds
+  Confusion Matrix:
+    [14  0]
+    [ 1 13]
+
+Configuration: bow_naive_bayes
+  Accuracy: 100.00% (Excellent)
+  Training Time: 0.0015 seconds
+  Prediction Time: 0.0000 seconds
+  Confusion Matrix:
+    [14  0]
+    [ 0 14]
+
+Configuration: bow_logistic
+  Accuracy: 100.00% (Excellent)
   Training Time: 0.0030 seconds
   Prediction Time: 0.0000 seconds
   Confusion Matrix:
     [14  0]
     [ 0 14]
 
-Configuration: tfidf_random_forest
-  Accuracy: 96.43%
-  Training Time: 0.0803 seconds
-  Prediction Time: 0.0030 seconds
-  Confusion Matrix:
-    [14  0]
-    [ 1 13]
-
-Configuration: bow_naive_bayes
-  Accuracy: 100.00%
-  Training Time: 0.0010 seconds
-  Prediction Time: 0.0010 seconds
-  Confusion Matrix:
-    [14  0]
-    [ 0 14]
-
-Configuration: bow_logistic
-  Accuracy: 100.00%
-  Training Time: 0.0040 seconds
-  Prediction Time: 0.0000 seconds
-  Confusion Matrix:
-    [14  0]
-    [ 0 14]
-
 Configuration: bow_svm
-  Accuracy: 96.43%
-  Training Time: 0.0040 seconds
-  Prediction Time: 0.0000 seconds
+  Accuracy: 96.43% (Excellent)
+  Training Time: 0.0030 seconds
+  Prediction Time: 0.0010 seconds
   Confusion Matrix:
     [14  0]
     [ 1 13]
 
 Configuration: bow_random_forest
-  Accuracy: 96.43%
-  Training Time: 0.0869 seconds
-  Prediction Time: 0.0025 seconds
+  Accuracy: 96.43% (Excellent)
+  Training Time: 0.0883 seconds
+  Prediction Time: 0.0030 seconds
   Confusion Matrix:
     [14  0]
     [ 1 13]
 
 Configuration: bigram_naive_bayes
-  Accuracy: 96.43%
-  Training Time: 0.0020 seconds
-  Prediction Time: 0.0000 seconds
+  Accuracy: 96.43% (Excellent)
+  Training Time: 0.0006 seconds
+  Prediction Time: 0.0008 seconds
   Confusion Matrix:
     [13  1]
     [ 0 14]
 
 Configuration: bigram_logistic
-  Accuracy: 96.43%
-  Training Time: 0.0036 seconds
+  Accuracy: 96.43% (Excellent)
+  Training Time: 0.0040 seconds
   Prediction Time: 0.0000 seconds
   Confusion Matrix:
     [13  1]
     [ 0 14]
 
 Configuration: bigram_svm
-  Accuracy: 96.43%
-  Training Time: 0.0060 seconds
+  Accuracy: 96.43% (Excellent)
+  Training Time: 0.0030 seconds
   Prediction Time: 0.0010 seconds
   Confusion Matrix:
     [13  1]
     [ 0 14]
 
 Configuration: bigram_random_forest
-  Accuracy: 100.00%
-  Training Time: 0.1463 seconds
-  Prediction Time: 0.0030 seconds
+  Accuracy: 100.00% (Excellent)
+  Training Time: 0.0912 seconds
+  Prediction Time: 0.0021 seconds
   Confusion Matrix:
     [14  0]
     [ 0 14]
